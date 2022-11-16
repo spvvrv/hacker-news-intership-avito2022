@@ -1,14 +1,28 @@
-import logo from './logo.svg';
+import { Link, BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
-import Button from '@mui/material/Button';
+import { Home } from './pages/Home';
+import { Story } from './pages/Story';
 
 function App() {
   return (
-    <div className="App">
-      <Button variant="text">Text</Button>
-      <Button variant="contained">Contained</Button>
-      <Button variant="outlined">Outlined</Button>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Link to="/">Home</Link>
+
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/story/:id">
+            <Story />
+          </Route>
+          <Route>
+            <h1>Error 404</h1>
+            <div>Page not found</div>
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
