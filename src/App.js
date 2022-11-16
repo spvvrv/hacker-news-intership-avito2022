@@ -7,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Link to="/">Home</Link>
+        <Link to="/">News list</Link>
 
         <Switch>
           <Route exact path="/">
