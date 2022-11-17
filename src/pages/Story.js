@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Link } from "@material-ui/core";
+import Button from "@mui/material/Button";
 
 function useStory(id) {
   const [response, setResponse] = useState();
@@ -8,7 +10,7 @@ function useStory(id) {
     fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
       .then((response) => response.json())
       .then(setResponse);
-  }, [id]); //отслеживаем передаваемые id 
+  }, [id]); //отслеживаем передаваемые id
 
   return response;
 }
@@ -21,27 +23,13 @@ export function Story() {
     return <div>Loading...</div>;
   }
 
-  return <div>
-  Story link: {story.url}
-  <h2>{story.title}</h2>
-  Date: {new Date(story.time).toLocaleDateString()}
-  author: <b>{story.by}</b>
-  Comments: {story.descendants}
-  </div>
+  return (
+    <div>
+      <a href={story.url}>Go to news site</a>
+      <h2>{story.title}</h2>
+      Date: {new Date(story.time).toLocaleDateString()}
+      author: <b>{story.by}</b>
+      Comments: {story.descendants}
+    </div>
+  );
 }
-
-
-
-//           <Card>
-//             <h2>{title}</h2>
-//             <p>
-//               , by {by} (rating:{' '}
-//               {score})
-//             </p>
-//             <Link to={`/story/${id}`}>Go to story</Link>
-//           </Card>
-//         );
-//       })}
-//     </div>
-//   );
-// }

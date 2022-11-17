@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin-top: 70px;
 }
 
 .App-logo {
@@ -35,4 +36,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.MuiToolbar-root{
+  justify-content: center;
 }
