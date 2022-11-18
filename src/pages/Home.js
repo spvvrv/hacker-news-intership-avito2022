@@ -106,7 +106,7 @@ export function Home() {
                   component={Link}
                   to={`/story/${id}`}
                 >
-                  Go to story
+                  Follow the link to open the story
                 </Button>
               </Card>
             </div>
