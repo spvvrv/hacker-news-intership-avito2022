@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import Comment from "./comment";
-import second from "react-router-dom";
 
 function useStory(id) {
   const [response, setResponse] = useState();
@@ -20,8 +19,6 @@ export function Story() {
   const { id } = useParams();
   const story = useStory(id);
 
-  console.log(story);
-
   if (!story) {
     return (
       <div>
@@ -30,8 +27,12 @@ export function Story() {
     );
   }
 
+  console.log(story);
+
   return (
     <div style={{ margin: "50px" }}>
+      <a href={story.url}>Go to news site</a>
+
       <h2 style={{ color: "#353945" }}>{story.title}</h2>
       <div>
         <b>Date:</b> {new Date(story.time).toLocaleDateString()}
