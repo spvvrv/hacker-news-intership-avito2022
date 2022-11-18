@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { Card } from "@mui/material";
+import { Card, CircularProgress, Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import Button from "@mui/material/Button";
 
 function useNewStories() {
   const [response, setResponse] = useState(); //принимает на вход начальное состояние и возвращает массив из двух значений: текущего значения состояния и функции, которая обновляет состояние
@@ -30,19 +29,55 @@ function useNewStories() {
 }
 
 export function Home() {
-  const newStories = useNewStories(); //передали полученные значения
+  // const stories = useNewStories(); //передали полученные значения
+  const [stories, setStories] = useState();
 
-  if (!newStories) {
-    return <div>Loading...</div>; //пока значения не получены, то выводим это значение
+  async function getStories(max) {
+    const storiesResponse = await fetch(
+      "https://hacker-news.firebaseio.com/v0/newstories.json"
+    );
+    const storiesIds = await storiesResponse.json();
+    const storiesPromises = storiesIds
+      .slice(0, max)
+      .map((id) =>
+        fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then(
+          (response) => response.json()
+        )
+      );
+    const stories = await Promise.all(storiesPromises);
+    setStories(stories);
+  }
+
+  useEffect(() => {
+    getStories(100);
+  }, []);
+
+  useEffect(() => {
+    if (stories) {
+      setTimeout(() => {
+        getStories(100);
+      }, 60000);
+    }
+  }, [stories]);
+
+  if (!stories) {
+    return (
+      <div>
+        <CircularProgress size={50} />
+      </div>
+    ); //пока значения не получены, то выводим это значение
   }
 
   return (
     //перебираем полученные значения через массив и рендерим карточку со всеми данными в блок div
+
     <div>
       <div>
         <Button
+          variant="contained"
+          color="primary"
           onClick={() => {
-            window.location.reload();
+            getStories(100);
           }}
         >
           Reload stories
@@ -50,23 +85,32 @@ export function Home() {
       </div>
 
       <div>
-        {newStories.map(({ id, title, time, by, score }) => {
+        {stories.map(({ id, title, time, by, score, descendants, kids }) => {
           return (
-            <Card>
-              <h2>{title}</h2>
-              <p>
-                <b>{new Date(time).toLocaleDateString()}</b>, by {by} (rating:{" "}
-                {score})
-              </p>
-              <Button
-                href="#text-buttons"
-                color="primary"
-              >
-                <Link to={`/story/${id}`}>Go to story</Link>
-              </Button>
+            <div key={id}>
+              <Card>
+                <h2>{title}</h2>
+                <p>
+                  <b>{new Date(time).toLocaleDateString()}</b>,{time}
+                  <br /> by {by}
+                  <br />
+                  (rating: {score}),
+                  <br />
+                  comments: {descendants},
+                  <br />
+                  kids: {kids}
+                </p>
+                <Button
+                  color="primary"
+                  component={Link}
+                  to={`/story/${id}`}
+                >
+                  Go to story
+                </Button>
 
-              {/* тег линк не вызывает обновления страницы! */}
-            </Card>
+                {/* тег линк не вызывает обновления страницы! */}
+              </Card>
+            </div>
           );
         })}
       </div>
