@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Link } from "@material-ui/core";
-import Button from "@mui/material/Button";
+import { CircularProgress } from "@mui/material";
+import Comment from "./comment";
+import second from 'react-router-dom'
 
 function useStory(id) {
+  // <Route path="/story/:id">
   const [response, setResponse] = useState();
 
   useEffect(() => {
@@ -19,17 +21,35 @@ export function Story() {
   const { id } = useParams(); //возвращает объект пары key/value (ключ/значение) параметров URL
   const story = useStory(id);
 
+  console.log(story);
+
   if (!story) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <CircularProgress size={50} />
+      </div>
+    );
   }
 
   return (
     <div>
-      <a href={story.url}>Go to news site</a>
+      <a href={story.url}>Visit news site</a>
       <h2>{story.title}</h2>
-      Date: {new Date(story.time).toLocaleDateString()}
-      author: <b>{story.by}</b>
-      Comments: {story.descendants}
+      <b>Date:</b> {new Date(story.time).toLocaleDateString()}
+      <br />
+      <b>Author:</b> {story.by}
+      <br />
+      <b>Comments:</b> {story.descendants}
+      <br />
+      <b>score:</b> {story.score}
+      <br />
+      <b>kids:</b> {story.kids}
+      {story.kids?.map((id) => (
+        <Comment
+          key={id}
+          id={id}
+        />
+      ))}
     </div>
   );
 }
