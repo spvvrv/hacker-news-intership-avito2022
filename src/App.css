@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  margin-top: 70px;
+  padding: 0px 15px;
 }
 
 .App-logo {
@@ -26,7 +26,12 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #1976d2;
+}
+
+a{
+  text-decoration: none;
+  color: #1976d2;
 }
 
 @keyframes App-logo-spin {
@@ -38,7 +43,6 @@
   }
 }
 
-
-.MuiToolbar-root{
-  justify-content: center;
+.MuiPaper-root {
+margin-bottom: 50px;
 }
