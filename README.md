@@ -23,11 +23,24 @@ Also you can visit this deploy: [http://localhost:3000](http://localhost:3000)
 
 ## Authors
 
-- **Sofya Pivovarova** - [spvvrv](https://github.com/spvvrv)
+- **Sofya Pivovarova**
+  Github: [spvvrv](https://github.com/spvvrv);
+  Telegram: [spvvrv](https://t.me/spvvrv)
+
+Dear Sir/Madam,
 
 I am enclosing my test task to this letter. Please, find it attached. And thank you for your consideration!
 
-I also wanted to highlight the fact that this was a daunting task for me and I am really proud to be posting it to you now. The challenge was immense and, to be honest, some of the requirements were beyond the scope of my prior skills. However, I was able to accomplish your test and get a glimpse of such thing as (вот тут про твои реакты хуякты). I am planning to excel and delve into these frameworks in the future.
+I also wanted to highlight the fact that this was a daunting task for me and I am really proud to be posting it to you now. The challenge was immense and, to be honest, some of the requirements were beyond the scope of my prior skills. However, I was able to accomplish your test and get a glimpse of such thing as (React, API, Router, UI...). I am planning to excel and delve into these frameworks in the future.
 
 Kind regards,
 Sonya
+
+Добрый день!
+
+Прилагаю к письму свое тестовое задание. Спасибо вам за рассмотрение моей кандидатуры!
+
+Я хотела бы также подчеркнуть, что это было сложное задание и я горжусь тем, что высылаю его вам на проверку! Это было серьёзное испытание для меня; если честно, некоторые требования к заданию были за пределами моих текущих навыков. Однако я смогла его выполнить и получить большее представление о таких непростых вещах как (React, API, Router, UI...). В будущем, я планирую продолжать развиваться и совершенствовать свои знания данных фреймворков.
+
+С уважением,
+Софья
