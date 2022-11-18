@@ -31,7 +31,7 @@ export function Story() {
 
   return (
     <div style={{ margin: "50px" }}>
-      <a href={story.url}>Go to news site</a>
+      <a href={story?.url}>Go to news site</a>
 
       <h2 style={{ color: "#353945" }}>{story.title}</h2>
       <div>
