@@ -12,7 +12,7 @@ In the project directory, you can run:
 Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Also you can visit this deploy: [http://localhost:3000](http://localhost:3000)
+Also you can visit this deploy: [https://hacker-news-intership-avito2022.vercel.app](https://hacker-news-intership-avito2022.vercel.app)
 
 ## Built With
 
