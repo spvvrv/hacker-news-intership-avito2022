@@ -23,7 +23,7 @@ function Comment({ id }) {
   return (
     <div>
       <div dangerouslySetInnerHTML={{ __html: comment.text }} />
-      <b>Date:</b> {new Date(comment.time).toLocaleDateString()}
+      <b>Date:</b> {new Date(comment.time).toLocaleString()}
       <br />
       <b>Author:</b> {comment.by}
     </div>
@@ -31,20 +31,3 @@ function Comment({ id }) {
 }
 
 export default Comment;
-
-// function useStory(id) {
-// const [response, setResponse] = useState();
-
-// return response;
-// }
-
-// export function Story() {
-// const { id } = useParams();
-// const story = useStory(id);
-
-// if (!story) {
-// return <div>Loading...</div>;
-// }
-
-// return <div>{story.title}</div>;
-// }

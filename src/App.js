@@ -3,7 +3,6 @@ import "./App.css";
 import { Home } from "./pages/Home";
 import { Story } from "./pages/Story";
 import Header from "./pages/header";
-// import { Comment } from "./pages/comment";
 
 function App() {
   return (
@@ -13,7 +12,10 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <Switch>
-            <Route exact path="/">
+            <Route
+              exact
+              path="/"
+            >
               <Home />
             </Route>
             <Route path="/story/:id">

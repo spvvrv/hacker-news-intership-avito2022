@@ -3,17 +3,12 @@ import { Card, CircularProgress, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
 function useNewStories() {
-  const [response, setResponse] = useState(); //принимает на вход начальное состояние и возвращает массив из двух значений: текущего значения состояния и функции, которая обновляет состояние
-  //в cosnt указали имена возвращаемых значений response, setResponse, которые хук useState будет инициализировать, обновлять и предоставлять доступ к их состоянию.
-
+  const [response, setResponse] = useState();
   useEffect(() => {
-    //коллбэк отработает после первой отрисовки и последующих обновлений компонентов.
-    //useEffecrt(()=>{}, []) - в хук вторым аргументом передается массив значений, которые надо отслеживать между отрисовками. Если хотя бы одно значение из этого массива поменялось, то колбек вызывается, если все значения остались прежними – пропускается.
     fetch("https://hacker-news.firebaseio.com/v0/newstories.json")
       .then((response) => response.json())
       .then((ids) =>
         Promise.all(
-          // возвращает промис, который выполнится тогда, когда будут выполнены все промисы, переданные в виде перечисляемого аргумента
           ids
             .slice(0, 100)
             .map((id) =>
@@ -24,12 +19,11 @@ function useNewStories() {
         )
       )
       .then(setResponse);
-  }, []); //Передали пустой массив, чтобы запустить useEffect() толькьо на момент первого рендера
-  return response; //вернули полученные значения
+  }, []);
+  return response;
 }
 
 export function Home() {
-  // const stories = useNewStories(); //передали полученные значения
   const [stories, setStories] = useState();
 
   async function getStories(max) {
@@ -65,14 +59,12 @@ export function Home() {
       <div>
         <CircularProgress size={50} />
       </div>
-    ); //пока значения не получены, то выводим это значение
+    );
   }
 
   return (
-    //перебираем полученные значения через массив и рендерим карточку со всеми данными в блок div
-
     <div>
-      <div>
+      <div style={{ margin: "30px" }}>
         <Button
           variant="contained"
           color="primary"
@@ -89,16 +81,25 @@ export function Home() {
           return (
             <div key={id}>
               <Card>
-                <h2>{title}</h2>
-                <p>
-                  <b>{new Date(time).toLocaleDateString()}</b>,{time}
-                  <br /> by {by}
+                <h2 style={{ color: "#353945" }}>{title}</h2>
+                <p
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    textAlign: "start",
+                    color: "#353945",
+                    fontSize: "18px",
+                  }}
+                >
+                  Rating: {score}
                   <br />
-                  (rating: {score}),
+                  Date of article: {new Date(time).toLocaleString()}
                   <br />
-                  comments: {descendants},
+                  Article author: {by}
                   <br />
-                  kids: {kids}
+                  Comments: {descendants}
+                  <br />
                 </p>
                 <Button
                   color="primary"
@@ -107,8 +108,6 @@ export function Home() {
                 >
                   Go to story
                 </Button>
-
-                {/* тег линк не вызывает обновления страницы! */}
               </Card>
             </div>
           );
