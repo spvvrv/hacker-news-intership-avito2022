@@ -1,6 +1,7 @@
 # Hacker-news-2022
 
 Test task for the selection of a Frontend intern 2022
+
 [Task link](https://github.com/avito-tech/internship_frontend_2022)
 
 ## Getting Started
