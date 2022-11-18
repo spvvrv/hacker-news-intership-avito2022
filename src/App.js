@@ -21,7 +21,6 @@ function App() {
               <div>
                 <Link to="/">See other stories</Link>
               </div>
-              {/* <Comment /> */}
             </Route>
             <Route>
               <h1>Error 404</h1>
