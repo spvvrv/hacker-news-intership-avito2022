@@ -32,7 +32,7 @@ Dear Sir/Madam,
 
 I am enclosing my test task to this letter. Please, find it attached. And thank you for your consideration!
 
-I also wanted to highlight the fact that this was a daunting task for me and I am really proud to be posting it to you now. The challenge was immense and, to be honest, some of the requirements were beyond the scope of my prior skills. However, I was able to accomplish your test and get a glimpse of such thing as (React, API, Router, UI...). I am planning to excel and delve into these frameworks in the future.
+I also wanted to highlight the fact that this was a daunting task for me and I am really proud to be posting it to you now. The challenge was immense and, to be honest, some of the requirements were beyond the scope of my prior skills. However, I was able to accomplish your test and get a glimpse of such thing as (React, API, Router, UI...). I am planning to excel and delve in the future.
 
 Kind regards,
 Sonya
@@ -41,7 +41,7 @@ Sonya
 
 Прилагаю к письму свое тестовое задание. Спасибо вам за рассмотрение моей кандидатуры!
 
-Я хотела бы также подчеркнуть, что это было сложное задание и я горжусь тем, что высылаю его вам на проверку! Это было серьёзное испытание для меня; если честно, некоторые требования к заданию были за пределами моих текущих навыков. Однако я смогла его выполнить и получить большее представление о таких непростых вещах как (React, API, Router, UI...). В будущем, я планирую продолжать развиваться и совершенствовать свои знания данных фреймворков.
+Я хотела бы также подчеркнуть, что это было сложное задание и я горжусь тем, что высылаю его вам на проверку! Это было серьёзное испытание для меня; если честно, некоторые требования к заданию были за пределами моих текущих навыков. Однако я смогла его выполнить и получить большее представление о таких непростых вещах как (React, API, Router, UI...). В будущем, я планирую продолжать развиваться и совершенствовать свои знания.
 
 С уважением,
 Софья
